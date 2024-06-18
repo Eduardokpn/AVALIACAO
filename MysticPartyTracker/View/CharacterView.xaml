@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MysticPartyTracker.View.CharacterView"
+             Title="CharacterView"
+             >
+
+<VerticalStackLayout>
+
+        <Label Text=" Digite o Nome"></Label>
+        <Entry 
+            x:Name="CharcterName"
+            Text="{Binding Name}"   
+        />
+
+        <Label Text=" Digite a Raça"></Label>
+        <Entry
+            x:Name="Raca"
+            Text="{Binding Race}"
+        />
+
+
+        <Label Text=" Digite a Nivel"></Label>
+       
+                <Entry
+                    x:Name="Nivel"
+                    Text="{Binding Level}"
+        />
+        
+
+        <Label Text=" Digite a Classe"></Label>
+    <Entry
+            x:Name="Clas"
+            Text="{Binding Class}"
+            />
+
+    <CollectionView ItemsSource= "{Binding Characters}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Label Text= "{Binding Name}"/>
+                        <Label Text= "{Binding Race}"/>
+                        <Label Text= "{Binding Level}"/>
+                        <Label Text= "{Binding Class}"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+            x:Name="AddCharc"
+            Text="Adicionar Personagem"
+            Command="{Binding addCharcCommand}"
+           />
+
+    </VerticalStackLayout>
+</ContentPage>

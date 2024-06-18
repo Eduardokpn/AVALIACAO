@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MysticPartyTracker.View.DiceView"
+             Title="DiceView">
+    <VerticalStackLayout>
+
+
+        <Label x:Name="Valor"
+               Text="{Binding Total}"
+               />
+
+        <CollectionView ItemsSource="{Binding Rolls}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding}"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <Picker x:Name="PickerDados" SelectedItem="{Binding Quantity}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:Int32}">
+                    <x:Int32>1</x:Int32>
+                    <x:Int32>2</x:Int32>
+                    <x:Int32>3</x:Int32>
+                    <x:Int32>4</x:Int32>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Picker x:Name="PickerLados" SelectedItem="{Binding NumberSides}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:Int32}">
+                    <x:Int32>4</x:Int32>
+                    <x:Int32>6</x:Int32>
+                    <x:Int32>10</x:Int32>
+                    <x:Int32>12</x:Int32>
+                    <x:Int32>20</x:Int32>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button 
+            x:Name="rollardadosButton"
+            Text="Rolar Dados"
+            Command="{Binding RollCommand}"
+            />
+
+  
+
+    </VerticalStackLayout>
+</ContentPage>
